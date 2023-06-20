@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "f74cf4f6-4a54-4dd4-9f79-a096d63bf39d",
+		"name": "certa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27619363",
+		"_collection_link": "https://interstellar-resonance-626137.postman.co/workspace/New-Team-Workspace~2c46b029-bc32-4485-9e22-806b4aa0cf0f/collection/27619363-f74cf4f6-4a54-4dd4-9f79-a096d63bf39d?action=share&creator=27619363&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "get request",
+			"item": [
+				{
+					"name": "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6 907d289e10d714a6e88b30761fae22. ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Checking lon\"] = jsonData.coord.lon === -0.13;",
+									"tests[\"Checking lat\"] = jsonData.coord.lat === 51.51;",
+									"tests[\"Checking country\"] = jsonData.sys.country === \"GB\";",
+									"tests[\"Checking sunrise\"] = jsonData.sys.sunrise === 1485762037;",
+									"tests[\"Checking sunset\"] = jsonData.sys.sunset === 1485794875;",
+									"tests[\"Checking name\"] = jsonData.name === \"London\";",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6 907d289e10d714a6e88b30761fae22. ",
+							"protocol": "https",
+							"host": [
+								"samples",
+								"openweathermap",
+								"org"
+							],
+							"path": [
+								"data",
+								"2.5",
+								"weather"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "London,uk"
+								},
+								{
+									"key": "appid",
+									"value": "b6 907d289e10d714a6e88b30761fae22. "
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
